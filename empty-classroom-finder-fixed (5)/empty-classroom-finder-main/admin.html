@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Classroom Finder - Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="visibility:hidden">
+
+  <!-- Admin Panel Page -->
+
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏫</div>
+        <div>
+          <h3>Classroom Finder</h3>
+          <p>Dept. of CSE</p>
+        </div>
+        <button class="hamburger-btn" onclick="document.querySelector('.sidebar').classList.toggle('menu-open')">☰</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item">
+          <span class="menu-icon">🏠</span> Dashboard
+        </a>
+        <a href="search.html" class="menu-item">
+          <span class="menu-icon">🔍</span> Search Room
+        </a>
+        <a href="routine.html" class="menu-item">
+          <span class="menu-icon">📅</span> Full Routine
+        </a>
+        <a href="bookings.html" class="menu-item">
+          <span class="menu-icon">📋</span> My Bookings
+        </a>
+        <a href="admin.html" class="menu-item active">
+          <span class="menu-icon">⚙️</span> Admin Panel
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="menu-item logout">
+          <span class="menu-icon">🚪</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Admin Panel</h1>
+          <p class="topbar-subtitle">Manage routine, rooms and bookings</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="notification-btn">🔔</button>
+          <div class="user-badge">
+            <div class="user-avatar">A</div>
+            <span>Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Admin Quick Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">📅</div>
+          <div>
+            <h2 id="statRoutineCount">–</h2>
+            <p>Routine Entries</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">🏫</div>
+          <div>
+            <h2 id="statRoomCount">–</h2>
+            <p>Total Rooms</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">📋</div>
+          <div>
+            <h2 id="statBookingCount">–</h2>
+            <p>Active Bookings</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="routine-tab">📅 Manage Routine</button>
+        <button class="tab-btn" data-tab="rooms-tab">🏫 Manage Rooms</button>
+        <button class="tab-btn" data-tab="bookings-tab">📋 All Bookings</button>
+      </div>
+
+      <!-- Manage Routine Tab -->
+      <section class="tab-content" id="routine-tab">
+        <div class="admin-form-card">
+          <h3>+ Add New Routine Entry</h3>
+          <div class="admin-form-grid">
+            <div class="search-field">
+              <label>Room</label>
+              <select id="newRoutineRoom">
+                <!-- Options loaded dynamically from rooms collection -->
+              </select>
+            </div>
+            <div class="search-field">
+              <label>Day</label>
+              <select id="newRoutineDay">
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <label>Start Time</label>
+              <input type="time" id="newRoutineStart">
+            </div>
+            <div class="search-field">
+              <label>End Time</label>
+              <input type="time" id="newRoutineEnd">
+            </div>
+            <div class="search-field">
+              <label>Subject</label>
+              <input type="text" id="newRoutineSubject" placeholder="e.g. Data Structures">
+            </div>
+            <div class="search-field">
+              <label>Teacher</label>
+              <input type="text" id="newRoutineTeacher" placeholder="e.g. Mr. Rahman">
+            </div>
+          </div>
+          <p id="routineFormError" class="modal-error" style="display:none;"></p>
+          <button class="search-btn" id="addRoutineBtn">+ Add Routine</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="routine-table">
+            <thead>
+              <tr><th>Day</th><th>Time</th><th>Room</th><th>Subject</th><th>Teacher</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminRoutineBody">
+              <!-- Rows loaded by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Manage Rooms Tab -->
+      <section class="tab-content" id="rooms-tab" style="display:none;">
+        <div class="admin-form-card">
+          <h3>+ Add New Room</h3>
+          <div class="admin-form-grid">
+            <div class="search-field">
+              <label>Room Number</label>
+              <input type="text" id="newRoomNumber" placeholder="e.g. 301">
+            </div>
+            <div class="search-field">
+              <label>Floor</label>
+              <input type="text" id="newRoomFloor" placeholder="e.g. 3rd Floor">
+            </div>
+            <div class="search-field">
+              <label>Building</label>
+              <input type="text" id="newRoomBuilding" placeholder="e.g. CSE Building">
+            </div>
+          </div>
+          <p id="roomFormError" class="modal-error" style="display:none;"></p>
+          <button class="search-btn" id="addRoomBtn">+ Add Room</button>
+        </div>
+
+        <div class="room-grid" id="adminRoomsGrid">
+          <!-- Room cards loaded by JavaScript -->
+        </div>
+      </section>
+
+      <!-- All Bookings Tab -->
+      <section class="tab-content" id="bookings-tab" style="display:none;">
+        <div class="bookings-list" id="adminBookingsList">
+          <!-- Bookings loaded by JavaScript -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.style.display = 'none');
+
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).style.display = 'block';
+      });
+    });
+  </script>
+
+  <script type="module" src="js/session.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

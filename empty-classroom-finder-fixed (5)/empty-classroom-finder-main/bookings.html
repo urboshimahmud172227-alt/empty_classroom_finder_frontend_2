@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Classroom Finder - My Bookings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- My Bookings Page -->
+
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏫</div>
+        <div>
+          <h3>Classroom Finder</h3>
+          <p>Dept. of CSE</p>
+        </div>
+        <button class="hamburger-btn" onclick="document.querySelector('.sidebar').classList.toggle('menu-open')">☰</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item">
+          <span class="menu-icon">🏠</span> Dashboard
+        </a>
+        <a href="search.html" class="menu-item">
+          <span class="menu-icon">🔍</span> Search Room
+        </a>
+        <a href="routine.html" class="menu-item">
+          <span class="menu-icon">📅</span> Full Routine
+        </a>
+        <a href="bookings.html" class="menu-item active">
+          <span class="menu-icon">📋</span> My Bookings
+        </a>
+        <a href="admin.html" class="menu-item">
+          <span class="menu-icon">⚙️</span> Admin Panel
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="menu-item logout">
+          <span class="menu-icon">🚪</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>My Bookings</h1>
+          <p class="topbar-subtitle">Manage your room bookings</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="notification-btn">🔔</button>
+          <div class="user-badge">
+            <div class="user-avatar">R</div>
+            <span>Student</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Tabs -->
+      <div class="day-tabs" id="bookingsTabs">
+        <button class="day-tab active" data-filter="upcoming">Upcoming</button>
+        <button class="day-tab" data-filter="past">Past</button>
+        <button class="day-tab" data-filter="cancelled">Cancelled</button>
+      </div>
+
+      <!-- Bookings List -->
+      <section class="bookings-list" id="bookingsList">
+        <!-- Bookings will be loaded here by JavaScript -->
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="js/session.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

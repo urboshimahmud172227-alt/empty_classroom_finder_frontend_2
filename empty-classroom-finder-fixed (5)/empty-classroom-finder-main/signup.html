@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Classroom Finder - Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sign Up Page -->
+
+  <div class="page-wrapper">
+
+    <!-- Left Branding Panel -->
+    <div class="brand-panel">
+      <div class="brand-content">
+        <div class="brand-badge">🎓 Department Portal</div>
+        <div class="logo-circle">🏫</div>
+        <h1>Empty Classroom Finder</h1>
+        <p>Create an account to search, book, and manage classroom availability.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">⏱️</span> Real-time room availability
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">📝</span> Instant booking for extra classes
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">📅</span> Full department routine view
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Signup Panel -->
+    <div class="form-panel">
+      <div class="login-box">
+
+        <div class="mobile-logo">
+          <div class="logo-circle">🏫</div>
+          <h3>Empty Classroom Finder</h3>
+        </div>
+
+        <h2>Create Account</h2>
+        <p class="form-subtitle">Sign up to get started</p>
+
+        <p id="errorMsg" style="color:#e0342a; font-size:14px; margin-bottom:14px; display:none;"></p>
+
+        <form id="signupForm">
+          <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <div class="input-with-icon">
+              <span class="input-icon"></span>
+              <input type="email" id="email" placeholder="you@university.edu" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <span class="input-icon"></span>
+              <input type="password" id="password" placeholder="At least 6 characters" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="role">I am a</label>
+            <select id="role" style="padding:14px 16px; border:1.5px solid var(--color-border); border-radius:12px; font-size:16px; outline:none;">
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+
+          <button type="submit" class="login-btn">Create Account →</button>
+        </form>
+
+        <p class="signup-text">Already have an account? <a href="index.html">Sign In</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

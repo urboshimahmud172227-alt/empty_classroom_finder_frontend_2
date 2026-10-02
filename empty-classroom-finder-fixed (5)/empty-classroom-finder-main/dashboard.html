@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Classroom Finder - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dashboard Page -->
+
+  <div class="dashboard-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏫</div>
+        <div>
+          <h3>Classroom Finder</h3>
+          <p>Dept. of CSE</p>
+        </div>
+        <button class="hamburger-btn" onclick="document.querySelector('.sidebar').classList.toggle('menu-open')">☰</button>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="menu-item active">
+          <span class="menu-icon">🏠</span> Dashboard
+        </a>
+        <a href="search.html" class="menu-item">
+          <span class="menu-icon">🔍</span> Search Room
+        </a>
+        <a href="routine.html" class="menu-item">
+          <span class="menu-icon">📅</span> Full Routine
+        </a>
+        <a href="bookings.html" class="menu-item">
+          <span class="menu-icon">📋</span> My Bookings
+        </a>
+        <a href="admin.html" class="menu-item">
+          <span class="menu-icon">⚙️</span> Admin Panel
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="index.html" class="menu-item logout">
+          <span class="menu-icon">🚪</span> Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="date-badge" id="dateBadge">📅 Loading...</span>
+          <h1 id="welcomeHeading">Welcome back 👋</h1>
+          <p class="topbar-subtitle">Here's what's happening in your department today</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="notification-btn">🔔</button>
+          <div class="user-badge">
+            <div class="user-avatar">R</div>
+            <span>Student</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick Stats -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div>
+            <h2 id="statFreeNow">–</h2>
+            <p>Rooms Free Now</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red">📌</div>
+          <div>
+            <h2 id="statBookedNow">–</h2>
+            <p>Rooms Booked Now</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">📅</div>
+          <div>
+            <h2 id="statMyBookingsToday">–</h2>
+            <p>Your Bookings Today</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Cards -->
+      <p class="section-label">QUICK ACTIONS</p>
+      <section class="feature-cards">
+        <a href="search.html" class="feature-card">
+          <div class="feature-card-icon">🔍</div>
+          <h3>Search Room</h3>
+          <p>Check if a room is free at a specific time</p>
+          <span class="feature-card-arrow">→</span>
+        </a>
+        <a href="routine.html" class="feature-card">
+          <div class="feature-card-icon">📅</div>
+          <h3>Full Routine</h3>
+          <p>View the complete department class schedule</p>
+          <span class="feature-card-arrow">→</span>
+        </a>
+        <a href="bookings.html" class="feature-card">
+          <div class="feature-card-icon">📋</div>
+          <h3>My Bookings</h3>
+          <p>See and manage your room bookings</p>
+          <span class="feature-card-arrow">→</span>
+        </a>
+      </section>
+
+      <!-- Currently Free Rooms Preview -->
+      <p class="section-label">FREE RIGHT NOW</p>
+      <section class="mini-room-list" id="freeRoomsPreview">
+        <div class="mini-room-chip free">Loading...</div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="js/session.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
